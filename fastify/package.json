@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "fastify": "^3.27.2",
+    "fastify-mongodb": "^4.1.1",
+    "fastify-plugin": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "fastify",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

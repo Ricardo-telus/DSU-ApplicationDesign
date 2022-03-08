@@ -1,0 +1,106 @@
+/*   **************Comandos importantes:
+npm list
+❯ npm list --depth=0
+/Users/joe/dev/node/cowsay
+└── cowsay@1.3.1
+
+❯ npm list minimist
+/Users/joe/dev/node/cowsay
+└─┬ cowsay@1.3.1
+  └─┬ optimist@0.6.1
+    └── minimist@0.0.10
+
+❯ npm view cowsay version
+
+1.3.1
+
+
+You can install an old version of an npm package using the @ syntax:
+npm install <package>@<version>
+
+ejemplo: 
+npm install cowsay
+
+npm install cowsay@1.2.0
+
+o global
+npm install -g webpack@4.16.4
+
+If there is a new minor or patch release and we type npm update, the installed version is updated, and the package-lock.json file diligently filled with the new version.
+
+Since npm version 5.0.0, npm update will update the package.json with the updated version. Use npm update --no-save to not update package.json.
+
+
+npm uninstall <package-name>
+
+
+When you install an npm package using npm install <package-name>, you are installing it as a dependency.
+
+The package is automatically listed in the package.json file, under the dependencies list (as of npm 5: before you had to manually specify --save).
+
+When you add the -D flag, or --save-dev, you are installing it as a development dependency, which adds it to the devDependencies list.
+
+Development dependencies are intended as development-only packages, that are unneeded in production. For example testing packages, webpack or Babel.
+
+When you go in production, if you type npm install and the folder contains a package.json file, they are installed, as npm assumes this is a development deploy.
+
+You need to set the --production flag (npm install --production) to avoid installing those development dependencies.
+
+
+*/
+
+
+// para actualizar paquetes: npm update
+/*
+It's very common to use this feature to run Webpack:
+
+JSON
+copy
+{
+  "scripts": {
+    "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+    "dev": "webpack --progress --colors --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",
+  }
+}
+
+So instead of typing those long commands, which are easy to forget or mistype, you can run
+
+CONSOLE
+copy
+$ npm run watch
+$ npm run dev
+$ npm run prod
+
+
+
+/*
+function generateRandom() {
+...return Math.random()
+}
+undefined
+[1, 2, 3].forEach(num => {
+    The REPL has some special commands, all starting with a dot .. They are
+.help: shows the dot commands help
+.editor: enables editor mode, to write multiline JavaScript code with ease. Once you are in this mode, enter ctrl-D to run the code you wrote.
+.break: when inputting a multi-line expression, entering the .break command will abort further input. Same as pressing ctrl-C.
+.clear: resets the REPL context to an empty object and clears any multi-line expression currently being input.
+.load: loads a JavaScript file, relative to the current working directory
+.save: saves all you entered in the REPL session to a file (specify the filename)
+.exit: exits the repl (same as pressing ctrl-C two times)
+local.on('exit',() => {
+    console.log("exiting repl");
+    process.exit();
+})
+process.argv.forEach((val, index) => {
+  console.log(`${index}: ${val}`)
+})
+For example:
+JS
+copy
+console.log('My %s has %d ears', 'cat', 2)
+%s format a variable as a string
+%d format a variable as a number
+%i format a variable as its integer part only
+%o format a variable as an object
+*/

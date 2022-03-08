@@ -1,0 +1,121 @@
+$ npx express-generator
+For earlier Node versions, install the application generator as a global npm package and then launch it:
+
+$ npm install -g express-generator
+$ express
+
+$ express -h
+
+  Usage: express [options] [dir]
+
+  Options:
+
+    -h, --help          output usage information
+        --version       output the version number
+    -e, --ejs           add ejs engine support
+        --hbs           add handlebars engine support
+        --pug           add pug engine support
+    -H, --hogan         add hogan.js engine support
+        --no-view       generate without view engine
+    -v, --view <engine> add view <engine> support (ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade)
+    -c, --css <engine>  add stylesheet <engine> support (less|stylus|compass|sass) (defaults to plain css)
+        --git           add .gitignore
+    -f, --force         force on non-empty directory
+For example, the following creates an Express app named myapp. The app will be created in a folder named myapp in the current working directory and the view engine will be set to Pug:
+
+$ express --view=pug myapp
+
+   create : myapp
+   create : myapp/package.json
+   create : myapp/app.js
+   create : myapp/public
+   create : myapp/public/javascripts
+   create : myapp/public/images
+   create : myapp/routes
+   create : myapp/routes/index.js
+   create : myapp/routes/users.js
+   create : myapp/public/stylesheets
+   create : myapp/public/stylesheets/style.css
+   create : myapp/views
+   create : myapp/views/index.pug
+   create : myapp/views/layout.pug
+   create : myapp/views/error.pug
+   create : myapp/bin
+   create : myapp/bin/www
+Then install dependencies:
+
+$ cd myapp
+$ npm install
+On MacOS or Linux, run the app with this command:
+
+$ DEBUG=myapp:* npm start
+On Windows Command Prompt, use this command:
+
+> set DEBUG=myapp:* & npm start
+On Windows PowerShell, use this command:
+
+PS> $env:DEBUG='myapp:*'; npm start
+Then load http://localhost:3000/ in your browser to access the app.
+
+The generated app has the following directory structure:
+
+.
+├── app.js
+├── bin
+│   └── www
+├── package.json
+├── public
+│   ├── images
+│   ├── javascripts
+│   └── stylesheets
+│       └── style.css
+├── routes
+│   ├── index.js
+│   └── users.js
+└── views
+    ├── error.pug
+    ├── index.pug
+    └── layout.pug
+
+7 directories, 9 files
+
+
+
+
+Serving static files in Express
+To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
+
+The function signature is:
+
+express.static(root, [options])
+The root argument specifies the root directory from which to serve static assets. For more information on the options argument, see express.static.
+
+For example, use the following code to serve images, CSS files, and JavaScript files in a directory named public:
+
+app.use(express.static('public'))
+Now, you can load the files that are in the public directory:
+http://localhost:3000/images/kitten.jpg
+http://localhost:3000/css/style.css
+http://localhost:3000/js/app.js
+http://localhost:3000/images/bg.png
+http://localhost:3000/hello.html
+
+
+
+
+
+
+
+
+To use multiple static assets directories, call the express.static middleware function multiple times:
+
+app.use(express.static('public'))
+app.use(express.static('files'))
+Express looks up the files in the order in which you set the static directories with the express.static middleware function.
+
+NOTE: For best results, use a reverse proxy cache to improve performance of serving static assets.
+
+To create a virtual path prefix (where the path does not actually exist in the file system) for files that are served by the express.static function, specify a mount path for the static directory, as shown below:
+
+app.use('/static', express.static('public'))
+Now, you can load the files that are in the public directory from the /static path prefix.
