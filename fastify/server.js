@@ -26,7 +26,7 @@ const fastify = require('fastify')({
 })
 
 fastify.get('/', async (request, reply) => {
-  return { hello: 'world2' }
+  return { hello: 'world2 si jalo cabron' }
 })
 
 const start = async () => {

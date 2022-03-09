@@ -1,13 +1,15 @@
-/*
-con el primer plugin
+
+//con el primer plugin
 async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
-      return { hello: 'world3' }
+      return { hello: 'world3 que onda compi aca de nuevo?' }
     })
   }
   
   module.exports = routes
-*/
+
+
+/* no se realizdo debido a que noe staba instalado mongo db
 //con BD
 async function routes (fastify, options) {
     const collection = fastify.mongo.db.collection('test_collection')
@@ -52,3 +54,4 @@ async function routes (fastify, options) {
   }
   
   module.exports = routes
+  */
