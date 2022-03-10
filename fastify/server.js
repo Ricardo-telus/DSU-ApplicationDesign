@@ -7,6 +7,7 @@ const fastify = Fastify({
   logger: true
 })
 
+//probando cambios
 // Declare a route
 fastify.get('/', function (request, reply) {
   reply.send({ hello: 'world' })
